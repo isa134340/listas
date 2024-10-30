@@ -1,0 +1,80 @@
+---
+title: "e_listas"
+author: "isam"
+date: "2024-10-30"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+**Crea una lista que contenga al menos cuatro tipos diferentes de datos (incluyendo al menos un vector, una matriz, y un data frame). Luego, escribe código para acceder a cada uno de estos elementos por su índice.**
+
+
+```{r}
+ lista1 <-  list( data_f<-data.frame(
+  nombre = c("isa", "María", "luis", "Laura"),
+  edad = c(20, 22, 21, 23),
+  puntaje = c(5, 9, 1, 0.5)),
+  vector<-c(1,2,3),
+  matriz = matrix(c(1, 2, 3, 4), nrow = 2)
+)
+```
+
+lista1
+
+
+para acceder con indice al vector con corchetes 
+
+```{r}
+ 
+lista1_v<- lista1 [[2]]
+lista1_v
+```
+
+
+para acceder con indice a la matriz con NOMBRE 
+```{r}
+ 
+lista_M<- lista1$matriz
+lista_M
+
+```
+
+
+#Almacena datos de producción en experimentos de fermentación.
+```{r}
+ 
+list_2<- list(
+  list(cepa = "A1", condicion = "glucosa", produccion_E = 7.2),
+  list(cepa= "A2", condicion = "sacarosa", produccion_E= 6.8),
+  list(cepa = "A3", condicion = "agarosa", produccion_E = 7.5),
+  list(cepa= "A4", condicion= "formulaI", produccion_E = 8.1)
+)
+
+list_2
+
+
+```
+
+el que tiene mayor produccion de etanol 
+
+```{r}
+ 
+# poner en un nuevo vector la produccion de Etanol
+produccion_E <- c(list_2[[1]][["produccion_E"]], list_2[[2]][["produccion_E"]], list_2[[3]][["produccion_E"]], list_2[[4]][["produccion_E"]])
+
+max(produccion_E)
+```
+agragar un elemento a la lista
+```{r}
+ 
+otro_elemento<- matrix(runif(10), nrow=5)
+otro_elemento
+append (lista1,otro_elemento) 
+
+```
